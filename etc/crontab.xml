@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job instance="ModMage\PmReport\Cron\Run" method="execute" name="payment_methods_report">
+            <config_path>payment_history_config/general/cron_pm</config_path>
+        </job>
+    </group>
+</config>

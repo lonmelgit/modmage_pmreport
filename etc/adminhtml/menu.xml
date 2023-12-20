@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="ModMage_PmReport::ways" title="ModMage PM Report"
+             module="ModMage_PmReport" sortOrder="150" parent="Magento_Reports::report_salesroot"
+             action="payment_history/ways/index" resource="ModMage_PmReport::ways"/>
+    </menu>
+</config>
+
+

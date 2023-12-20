@@ -1,0 +1,40 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <preference for="ModMage\PmReport\Api\Data\WaysInterface" type="ModMage\PmReport\Model\Ways" />
+    <preference for="ModMage\PmReport\Api\WaysRepositoryInterface" type="ModMage\PmReport\Model\WaysRepository" />
+
+    <virtualType name="WaysGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">ModMage\PmReport\Model\ResourceModel\Ways\Collection</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="payment_history_listing_data_source" xsi:type="string">ModMage\PmReport\Model\ResourceModel\Ways\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="ModMage\PmReport\Model\ResourceModel\Ways\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">payment_history</argument>
+            <argument name="eventPrefix" xsi:type="string">payment_history_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">payment_history_collection</argument>
+            <argument name="resourceModel" xsi:type="string">ModMage\PmReport\Model\ResourceModel\Ways</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Model\Entity\RepositoryFactory">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="ModMage\PmReport\Api\Data\WaysInterface" xsi:type="string">ModMage\PmReport\Api\WaysRepositoryInterface</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\Notification\MessageList">
+        <arguments>
+            <argument name="messages" xsi:type="array">
+                <item name="customMessageNotification" xsi:type="string">ModMage\PmReport\Model\System\Message\PaymentChangeNotification</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

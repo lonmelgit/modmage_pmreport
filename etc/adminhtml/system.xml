@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="modmage" translate="label" sortOrder="1000">
+            <label>ModMage</label>
+        </tab>
+        <section id="payment_history_config" translate="label" sortOrder="545" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>Report on the Use of Payment Methods</label>
+            <tab>modmage</tab>
+            <resource>ModMage_PmReport::payment_history_config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General settings</label>
+                <field id="description" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Description</label>
+                    <comment>
+                        <![CDATA[ Report on the Use of Payment Methods (Reports - Sales - ModMage PM Report)]]>
+                    </comment>
+                </field>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="1" canRestore="1">
+                    <label>Is Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="notification" translate="label" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Notification</label>
+                    <comment>
+                        Enter the number of days to be used for checking the status period of items marked as 'Warning'.
+                    </comment>
+                    <depends>
+                        <field id="payment_history_config/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="cron_pm" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Cron</label>
+                    <comment>
+                        <![CDATA[Cron: <b> payment_methods_report</b>]]>
+                    </comment>
+                    <depends>
+                        <field id="payment_history_config/general/enable">1</field>
+                    </depends>
+                </field>
+                <field id="period" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Period</label>
+                    <comment>Enter hours to determine order collection for a specific period.</comment>
+                </field>
+                <depends>
+                    <field id="payment_history_config/general/enable">1</field>
+                </depends>
+            </group>
+            <group id="methods" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Payment Methods</label>
+                <field id="description2" translate="label" type="label" sortOrder="1" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Description</label>
+                    <comment>
+                        <![CDATA[Input minimal value for methods, that will be acceptable for you.
+                         If the current value is less than what you set, the status for the method in the report becomes "Warning" ]]>
+                    </comment>
+                </field>
+                <field id="affirm_gateway" translate="label" type="text" sortOrder="10" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Affirm</label>
+                    <depends>
+                        <field id="payment_history_config/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="amazon_payment_v2" translate="label" type="text" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Amazon Pay</label>
+                    <depends>
+                        <field id="payment_history_config/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="paypal_express" translate="label" type="text" sortOrder="30" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>PayPal Express Checkout</label>
+                    <depends>
+                        <field id="payment_history_config/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="m2epropayment" translate="label" type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>M2E Pro Payment</label>
+                    <depends>
+                        <field id="payment_history_config/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="braintree" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Credit Card (Braintree)</label>
+                    <depends>
+                        <field id="payment_history_config/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="mageworx_ordereditor_payment_method" translate="label" type="text" sortOrder="60"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>MAGEWORKS</label>
+                    <depends>
+                        <field id="payment_history_config/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="stripe_payments_express" translate="label" type="text" sortOrder="60" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Wallet payment via Stripe</label>
+                    <depends>
+                        <field id="payment_history_config/general/enabled">1</field>
+                    </depends>
+                </field>
+                <field id="checkmo" translate="label" type="text" sortOrder="70" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Check / Money order</label>
+                    <depends>
+                        <field id="payment_history_config/general/enabled">1</field>
+                    </depends>
+                    <comment>
+                        This method can be used for testing functionality of module
+                    </comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

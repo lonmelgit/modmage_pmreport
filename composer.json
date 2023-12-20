@@ -1,0 +1,25 @@
+{
+    "name": "lonmelgit/modmage_pmreport",
+    "description": "module ModMage_PmReport for Magento 2",
+    "type": "library",
+    "version": "1.0.0",
+    "authors": [
+        {
+            "name": "Evgeny Burko"
+        }
+    ],
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "ModMage\\PmReport\\": ""
+        }
+    }
+}
