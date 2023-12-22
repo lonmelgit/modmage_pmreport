@@ -7,5 +7,8 @@ The module <b>ModMage_PmReport</b> provides information on the payment methods u
 General settings
 ![image](https://github.com/lonmelgit/modmage_pmreport/assets/46269362/67ae9bba-1ed0-4de9-af55-8904daaf5eda)
 
-Grid table
+Grid table and notifications
+
+![image](https://github.com/lonmelgit/modmage_pmreport/assets/46269362/8858e833-7821-4144-915c-b9ab1bf762fe)
+
 
